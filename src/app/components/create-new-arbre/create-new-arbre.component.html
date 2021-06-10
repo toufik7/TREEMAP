@@ -1,0 +1,21 @@
+<form #arbreForm="ngForm" (ngSubmit)="insertArbre()">
+  <div class="from-groupe">
+      <label for="name">Title</label>
+      <input
+          type="text"
+          name="title"
+          #title="ngModel"
+          class="forme-control"
+          [(ngModel)]="arbre.title"
+          [class.is-invalid]="title.invalid"
+          required>
+          <br>
+          <small id="CreatHelp" class="text-danger"
+             [class.d-none]="title.valid || title.untouched">title is required</small>
+
+  </div>
+
+
+  <!--<button class="btn btn-success btn-sm mt-4">Submit</button>-->
+  <button [disabled]="arbreForm.form.invalid" class="btn btn-info btn-sm mt-4">next</button>
+</form>

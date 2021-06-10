@@ -1,0 +1,48 @@
+
+<h2>Adding Branches</h2>
+
+<form #branchForm="ngForm" (ngSubmit)="insertBranch()">
+  <div class="from-groupe">
+      <label for="name">Title</label>
+      <input
+        type="text"
+        name="title"
+        #title="ngModel"
+        class="forme-control"
+        [(ngModel)]="branch.title"
+        [class.is-invalid]="title.invalid"
+        required>
+        <br>
+          <small id="CreatHelp" class="text-danger"
+             [class.d-none]="title.valid || title.untouched">title is required</small>
+  </div>
+  <div class="from-groupe">
+    <label for="name">Arbre Id <strong> {{id}}</strong></label>
+</div>
+    <button [disabled]="branchForm.form.invalid"  class="btn btn-success btn-sm mt-4">Submit Branch</button>
+
+</form>
+<button class="btn btn-warning btn-sm mt-4" routerLink="/editArbre/{{id}}">Return back</button>
+
+
+<h2>Available Braches</h2>
+  <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of branches">
+            <th scope="row">{{b.id}}</th>
+            <td>{{b.title}}</td>
+            <td>
+                <button [contentType]="imageonly" [prefixIcon]="deleteicon" ej-button class="btn btn-danger btn-sm" (click)="deleteBranch(b.id)">Delete</button>
+                <button class="btn btn-success btn-sm mx-2" routerLink="/arbre/{{id}}/branch/{{b.id}}/branches">Add Sub Branches</button>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+

@@ -1,0 +1,53 @@
+
+<h2>Adding Sub Branches to Branch</h2>
+
+<form #leafForm="ngForm" (ngSubmit)="insertSubBranchByBranchId()">
+  <div class="from-groupe">
+      <label for="name">Title</label>
+      <input
+        type="text"
+        name="title"
+        #title="ngModel"
+        class="forme-control"
+        [(ngModel)]="branch.title"
+        [class.is-invalid]="title.invalid"
+        required>
+        <br>
+          <small id="CreatHelp" class="text-danger"
+             [class.d-none]="title.valid || title.untouched">title is required</small>
+  </div>
+  <div class="from-groupe">
+    <label for="name">Arbre Id <strong> {{id1}}</strong></label>
+</div>
+<div class="from-groupe">
+  <label for="name">Main Branch Id <strong> {{id2}}</strong></label>
+</div>
+
+
+<button type="submit" [disabled]="leafForm.form.invalid" class="btn btn-success btn-sm mt-4">Submit Sub Branch</button>
+<button class="btn btn-info btn-sm mt-4" routerLink="">Finish</button>
+</form>
+<button class="btn btn-warning btn-sm mt-4" (click)="backtoMainBranch()">Return back</button>
+
+<h2>Added Sub Branches</h2>
+  <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let sb of branches">
+            <th scope="row">{{sb.id}}</th>
+            <td>{{sb.title}}</td>
+            <td>
+                <button class="btn btn-danger btn-sm" (click)="deleteBranch(sb.id)">Delete</button>
+                <button class="btn btn-success btn-sm mx-2" (click)="goto(sb.id)">Add Sub Branches</button>
+
+           </td>
+        </tr>
+    </tbody>
+  </table>
+

@@ -1,0 +1,20 @@
+<h1>Arbre Editing</h1>
+
+<form #arbreForm="ngForm" (ngSubmit)="updateArbre()">
+  <div class="from-groupe">
+      <label for="name">Title</label>
+      <input type="text"
+            name="title"
+            #title="ngModel"
+            class="forme-control"
+            [class.is-invalid]="title.invalid"
+            [(ngModel)]="arbre.title"
+            required>
+            <br>
+          <small id="CreatHelp" class="text-danger"
+             [class.d-none]="title.valid || title.untouched">title is required</small>
+  </div>
+
+  <button [disabled]="arbreForm.form.invalid" class="btn btn-success btn-sm mt-4">Submit</button>
+  <button [disabled]="arbreForm.form.invalid" class="btn btn-info btn-sm mt-4" routerLink="/arbre/{{id}}/branches">Edit Branches</button>
+</form>

@@ -1,0 +1,34 @@
+
+
+  <button class="btn btn-success btn-sm mt-4" routerLink="cretaArbre">Create New Tree</button>
+
+
+<table class="table">
+  <thead>
+      <tr>
+          <th scope="col">id</th>
+          <th scope="col">Title</th>
+          <th>Action</th>
+          <th>Download</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let a of arbres">
+          <th scope="row">{{a.id}}</th>
+          <td>{{a.title}}</td>
+          <td>
+              <button class="btn btn-danger btn-sm" (click)="deleteArbre(a.id)">Delete</button>
+              <button class="btn btn-warning btn-sm mx-2" routerLink="editArbre/{{a.id}}">Edit</button>
+            </td>
+            <td>
+              <button class="btn btn-info btn-sm mx-2" (click)="downloadtest(a.id,a.title)">{{a.title}}.txt</button>
+
+            </td>
+
+         <!--<a [href]="url" download="{{a.title}}.txt" (click)="downloadtest(a.id)">{{a.title}}.txt</a>
+     -->
+
+      </tr>
+  </tbody>
+</table>
+
