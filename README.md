@@ -11,9 +11,7 @@
   TreeMap » allow the creation , update and delete of mind maps (tree maps) 
   
 ### Used Tools :
-  Frontend :'Angular 11' 'master' branch
-  
-  BackEnd : 'Laravel  7' 'masterBackEnd' branch 
-  
-  Data Base : 'MySQL'
+  -Frontend :[Angular 11 [master] branch
+  -BackEnd : [Laravel  7 masterBackEnd] branch 
+  -Data Base : [MySQL]
 
